@@ -7,13 +7,14 @@ public class Mungo : MonoBehaviour
     bool has_won;
     private CharacterController cc;
     int velocity;
+    int walk_velocity;
     private float horizVelocity;
     // Start is called before the first frame update
     void Start()
     {
         has_won = false;
         cc = GetComponent<CharacterController>();
-        velocity = 1;
+        walk_velocity = 100;
     }
 
     // Update is called once per frame
@@ -25,11 +26,11 @@ public class Mungo : MonoBehaviour
 
             if(Input.GetKey(KeyCode.LeftArrow))
             {  
-                transform.Rotate(new Vector3(0.0f, -0.5f, 0.0f));
+                transform.Rotate(new Vector3(0.0f, -1f, 0.0f));
             }
             else if(Input.GetKey(KeyCode.RightArrow))
             {
-                transform.Rotate(new Vector3(0.0f, 0.5f, 0.0f));
+                transform.Rotate(new Vector3(0.0f, 1f, 0.0f));
             }
 
             float xdirection = Mathf.Sin(Mathf.Deg2Rad * transform.rotation.eulerAngles.y);
@@ -38,20 +39,27 @@ public class Mungo : MonoBehaviour
 
             if(Input.GetKey(KeyCode.UpArrow))
             {  
-                velocity = 100;
+                if(Input.GetKey(KeyCode.Tab)){
+                    velocity = walk_velocity;
+                }else{
+                    velocity = walk_velocity*3;
+                }
             }
+            /*
             else if(Input.GetKey(KeyCode.DownArrow))
             {
                 velocity = -100;
             }
+            */
             else{
                 velocity = 0;
             }
 
             if(cc.isGrounded){
+                horizVelocity = 0f;
                 if(Input.GetKey(KeyCode.Space))
                 {  
-                    horizVelocity = 5;
+                    horizVelocity = 4;  
                 }
             }
 
