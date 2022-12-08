@@ -9,12 +9,14 @@ public class Mungo : MonoBehaviour
     int velocity;
     int walk_velocity;
     private float horizVelocity;
+    private bool dubJump;
     // Start is called before the first frame update
     void Start()
     {
         has_won = false;
         cc = GetComponent<CharacterController>();
         walk_velocity = 100;
+        dubJump = false;
     }
 
     // Update is called once per frame
@@ -39,11 +41,14 @@ public class Mungo : MonoBehaviour
 
             if(Input.GetKey(KeyCode.UpArrow))
             {  
+                /*
                 if(Input.GetKey(KeyCode.Tab)){
                     velocity = walk_velocity;
                 }else{
                     velocity = walk_velocity*3;
-                }
+                }*/
+
+                velocity = walk_velocity*3;
             }
             /*
             else if(Input.GetKey(KeyCode.DownArrow))
@@ -57,9 +62,18 @@ public class Mungo : MonoBehaviour
 
             if(cc.isGrounded){
                 horizVelocity = 0f;
+                dubJump = false;
                 if(Input.GetKey(KeyCode.Space))
                 {  
                     horizVelocity = 4;  
+                }
+            }
+
+            if(!cc.isGrounded && !dubJump){
+                if(Input.GetKey(KeyCode.Tab))
+                {  
+                    cc.Move(movement_direction * velocity);
+                    dubJump = true;
                 }
             }
 

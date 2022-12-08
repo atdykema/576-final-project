@@ -106,3 +106,12 @@ The following packages were removed:
   com.unity.render-pipelines.high-definition@12.1.0
   com.unity.render-pipelines.universal@12.1.0
   com.unity.shadergraph@12.1.0
+
+=== Sun Dec  4 18:30:17 2022
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.unity.probuilder@5.0.6
+  com.unity.terrain-tools@4.0.3
