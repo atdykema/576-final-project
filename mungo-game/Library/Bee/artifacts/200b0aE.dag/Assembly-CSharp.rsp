@@ -373,6 +373,12 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/fruit1.cs"
+"Assets/fruit1GamePlate1.cs"
+"Assets/fruit1GamePlate2.cs"
+"Assets/fruit1GamePlate3.cs"
+"Assets/fruit1GamePlate4.cs"
+"Assets/GameManager.cs"
 "Assets/MainCamera.cs"
 "Assets/Mungo.cs"
 -langversion:9.0
